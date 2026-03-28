@@ -29,6 +29,19 @@
 2. **推送并创建 MR**：Agent 将新分支推送到内网远端（`code.byted.org:zhangbo.int/note.git`），并向用户提供 **Codebase Merge Request (MR) 创建链接**。
 3. **用户 Review**：由用户在 Codebase 网页端进行代码审查和合并，合并后即完成笔记的正式归档。
 
+## 🌍 环境与部署
+
+本仓库及其配套的 Agent 助手支持跨环境部署，能够自动适应不同的运行上下文：
+
+- **环境感知的路径解析**：
+  Agent 会根据以下优先级动态推断笔记的物理存储路径：
+  1. **自定义变量**：若定义了环境变量 `PERSONAL_NOTES_DIR`，则以此为准。
+  2. **云端沙盒 (Workspace)**：若检测到处于 Aime 云端沙盒环境（如 `WORKSPACE_ID` 存在），默认路径为 `./memory/notes`。
+  3. **本地物理机**：若在用户个人电脑运行，默认路径回退至家目录下的 `~/memory/notes`。
+
+- **配置重定向**：
+  用户可以通过在 Shell 配置文件（如 `.bashrc` 或 `.zshrc`）中设置 `export PERSONAL_NOTES_DIR=/your/custom/path` 来重定向笔记的存储位置，实现多环境下的无缝同步与管理。
+
 ---
 
 有关 Agent 如何管理此仓库的详细技术规范，请参阅：[AI 助手工作流官方说明 (SKILL.md)](./skill_docs/SKILL.md)
