@@ -23,11 +23,11 @@
 - 以“**笔记：**”开头发送内容。
 - 发送具有记录价值的个人观点或深度思考。
 
-### GitHub PR 审查工作流（核心原则）
-为了保证笔记内容的准确性与可控性，同时提升效率，Agent 遵循以下流程：
-1. **自动分支提交**：当笔记发生新增或修改时，Agent 会自动创建一个以 `note-update-` 为前缀的新分支并完成本地 Commit。
-2. **推送并创建 PR**：Agent 将新分支推送到 GitHub 远端（`github.com/zhangerfa/personal-notes.git`），并向用户提供 **GitHub Pull Request (PR) 创建链接**。
-3. **用户 Review**：由用户在 GitHub 网页端进行代码审查和合并，合并后即完成笔记的正式归档。
+### 双远端容灾架构（核心原则）
+为了保证笔记数据的安全性与高可用性，本仓库采用**“内网 Codebase 为主，GitHub 为辅”**的双远端架构：
+1. **主远端 (origin)**：部署在内网 Codebase，作为日常开发的“主干”。Agent 会自动创建以 `note-update-` 为前缀的新分支，推送到内网并提供 **Codebase MR 创建链接**。
+2. **备远端 (github)**：部署在 GitHub，作为“备份容灾”。通过 `sync_github.sh` 脚本，每天定时将内网 `main` 的最新代码强制同步到 GitHub，确保天级别一致。
+3. **用户 Review**：用户在内网 Codebase 进行代码审查和合并，合并后即完成笔记的正式归档。
 
 ## 🌍 环境与部署
 
