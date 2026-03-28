@@ -23,11 +23,11 @@
 - 以“**笔记：**”开头发送内容。
 - 发送具有记录价值的个人观点或深度思考。
 
-### MR 审查工作流（核心原则）
+### GitHub PR 审查工作流（核心原则）
 为了保证笔记内容的准确性与可控性，同时提升效率，Agent 遵循以下流程：
 1. **自动分支提交**：当笔记发生新增或修改时，Agent 会自动创建一个以 `note-update-` 为前缀的新分支并完成本地 Commit。
-2. **推送并创建 MR**：Agent 将新分支推送到内网远端（`code.byted.org:zhangbo.int/note.git`），并向用户提供 **Codebase Merge Request (MR) 创建链接**。
-3. **用户 Review**：由用户在 Codebase 网页端进行代码审查和合并，合并后即完成笔记的正式归档。
+2. **推送并创建 PR**：Agent 将新分支推送到 GitHub 远端（`github.com/zhangerfa/personal-notes.git`），并向用户提供 **GitHub Pull Request (PR) 创建链接**。
+3. **用户 Review**：由用户在 GitHub 网页端进行代码审查和合并，合并后即完成笔记的正式归档。
 
 ## 🌍 环境与部署
 
