@@ -1,5 +1,5 @@
 ---
-name: personal-notes
+name: thought-capture
 description: |
   捕捉用户的碎片想法，将其归类并与已有笔记融合为更易读的统一表述，经用户确认后提交到笔记仓库。
   Use when: (1) 用户说"记下来"、"补充笔记"、"加到笔记"、"笔记："，
